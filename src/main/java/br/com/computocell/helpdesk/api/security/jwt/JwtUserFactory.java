@@ -1,4 +1,4 @@
-package br.com.computocell.helpdesk.api.security;
+package br.com.computocell.helpdesk.api.security.jwt;
 
 import br.com.computocell.helpdesk.api.entity.User;
 import br.com.computocell.helpdesk.api.enums.ProfileEnum;
@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class JwtUserFactory {

@@ -1,16 +1,15 @@
-package br.com.computocell.helpdesk.api.security;
+package br.com.computocell.helpdesk.api.security.jwt;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 
 
 public class JwtTokenUtil implements Serializable {
@@ -58,7 +57,7 @@ public class JwtTokenUtil implements Serializable {
         return expiration;
     }
 
-    private Claims getClaimsFromToken(String token){
+    public Claims getClaimsFromToken(String token){
         Claims claims;
         try {
             claims = Jwts.parser()
@@ -76,7 +75,7 @@ public class JwtTokenUtil implements Serializable {
      * @param token
      * @return
      */
-    private Boolean isTokenExpired(String token) {
+    public Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
@@ -86,7 +85,7 @@ public class JwtTokenUtil implements Serializable {
      * @param userDetails
      * @return
      */
-    private String generateToken(UserDetails userDetails) {
+    public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USERNAME,userDetails.getUsername());
         final Date createdDate = new Date();
@@ -99,7 +98,7 @@ public class JwtTokenUtil implements Serializable {
      * @param claims
      * @return
      */
-    private String doGenerateToken(Map<String, Object> claims) {
+    public String doGenerateToken(Map<String, Object> claims) {
         final Date createdDate      = (Date) claims.get(CLAIM_KEY_CREATED);
         final Date expirationDate   = new Date(createdDate.getTime()+expiration*1000);
         return Jwts.builder()

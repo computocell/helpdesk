@@ -1,4 +1,4 @@
-package br.com.computocell.helpdesk.api.security;
+package br.com.computocell.helpdesk.api.security.jwt;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
