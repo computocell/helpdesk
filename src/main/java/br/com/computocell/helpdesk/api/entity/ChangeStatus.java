@@ -10,56 +10,54 @@ import br.com.computocell.helpdesk.api.enums.StatusEnum;
 
 @Document
 public class ChangeStatus {
-    @Id
-    private String id;
-    @DBRef
-    private Ticket ticket;
-    @DBRef
-    private User userChange;
+	@Id
+	private String id;
+	@DBRef
+	private Ticket ticket;
+	@DBRef
+	private User userChange;
 
-    private Date dateChangeStatus;
+	private Date dateChangeStatus;
 
-    private StatusEnum status;
+	private StatusEnum status;
 
+	public String getId() {
+		return id;
+	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public Ticket getTicket() {
+		return ticket;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
 
-    public Ticket getTicket() {
-        return ticket;
-    }
+	public User getUserChange() {
+		return userChange;
+	}
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
+	public void setUserChange(User userChange) {
+		this.userChange = userChange;
+	}
 
-    public User getUserChange() {
-        return userChange;
-    }
+	public Date getDateChangeStatus() {
+		return dateChangeStatus;
+	}
 
-    public void setUserChange(User userChange) {
-        this.userChange = userChange;
-    }
+	public void setDateChangeStatus(Date dateChangeStatus) {
+		this.dateChangeStatus = dateChangeStatus;
+	}
 
-    public Date getDateChangeStatus() {
-        return dateChangeStatus;
-    }
+	public StatusEnum getStatus() {
+		return status;
+	}
 
-    public void setDateChangeStatus(Date dateChangeStatus) {
-        this.dateChangeStatus = dateChangeStatus;
-    }
-
-    public StatusEnum getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusEnum status) {
-        this.status = status;
-    }
+	public void setStatus(StatusEnum status) {
+		this.status = status;
+	}
 }

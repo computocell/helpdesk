@@ -7,7 +7,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import br.com.computocell.helpdesk.api.entity.Ticket;
 
 public interface TicketRepository extends MongoRepository<Ticket,String> {
-    Page<Ticket> findByUserIdOrderByDateDesc(Pageable pages, String id);
+	
+    //Page<Ticket> findByUserIdOrderByDateDesc(Pageable pages, String id);
+	Page<Ticket> findByUserIdOrderByDateDesc(Pageable pages, String userId);
 
     Page<Ticket> findByTitleIgnoreCaseContainingAndStatusAndPriorityOrderByDateDesc(
             String title, String status, String priority, Pageable pages );

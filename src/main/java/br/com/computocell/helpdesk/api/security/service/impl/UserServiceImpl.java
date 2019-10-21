@@ -1,6 +1,4 @@
-package br.com.computocell.helpdesk.api.service.impl;
-
-import java.util.Optional;
+package br.com.computocell.helpdesk.api.security.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.computocell.helpdesk.api.entity.User;
 import br.com.computocell.helpdesk.api.repository.UserRepository;
-import br.com.computocell.helpdesk.api.service.UserService;
+import br.com.computocell.helpdesk.api.security.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -29,13 +27,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(String id) {
-        Optional<User> studentOptional = this.userRepository.findById(id);
-        return studentOptional.orElse(null);
+    	return this.userRepository.findOne(id);
     }
+//    @Override
+//    public User findById(String id) {
+//    	Optional<User> studentOptional = this.userRepository.findById(id);
+//    	return studentOptional.orElse(null);
+//    }
 
     @Override
     public void delete(String id) {
-        this.userRepository.deleteById(id);
+        this.userRepository.delete(id);
     }
 
     @Override

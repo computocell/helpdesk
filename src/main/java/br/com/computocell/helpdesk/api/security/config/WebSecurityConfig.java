@@ -35,22 +35,30 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     
    
-    @Autowired
-    @Bean
-    public void configureAuthentication (AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception  {
-        authenticationManagerBuilder.userDetailsService(this.userDetailsService).passwordEncoder(passwordEnconder());
+//    @Autowired
+//    @Bean
+//    public void configureAuthentication (AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception  {
+//        authenticationManagerBuilder.userDetailsService(this.userDetailsService).passwordEncoder(passwordEnconder());
+//
+//    }
 
-    }
-
-    
+  
     @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+	@Bean // Coloco @Bean para o Spring saber que esse método retorna um AuthenticationManager. Com isso, consigo injetar na AuthenticationRestController
+	protected AuthenticationManager authenticationManager() throws Exception { // Método que cria um AuthenticationManager
+		return super.authenticationManager();
+	}
+	
+	// Configurações de autenticação
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());  // Digo o encoder que vou utilizar para a senha
+	}
+
+    
     
     @Bean
-    public PasswordEncoder passwordEnconder() {
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
     
