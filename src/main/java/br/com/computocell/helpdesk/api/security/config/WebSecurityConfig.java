@@ -34,26 +34,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     
-    @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
-    
-    
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception 
-//    {
-//        auth.parentAuthenticationManager(authenticationManagerBean());
-//            .userDetailsService(customUserDetailsService);
-//    }
+   
     @Autowired
+    @Bean
     public void configureAuthentication (AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception  {
         authenticationManagerBuilder.userDetailsService(this.userDetailsService).passwordEncoder(passwordEnconder());
 
     }
 
     
-    
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
     
     @Bean
     public PasswordEncoder passwordEnconder() {

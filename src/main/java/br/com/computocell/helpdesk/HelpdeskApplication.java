@@ -11,7 +11,6 @@ import br.com.computocell.helpdesk.api.enums.ProfileEnum;
 import br.com.computocell.helpdesk.api.repository.UserRepository;
 
 @SpringBootApplication
-
 public class HelpdeskApplication {
 
 	public static void main(String[] args) {
