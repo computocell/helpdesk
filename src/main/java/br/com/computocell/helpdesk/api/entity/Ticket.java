@@ -1,14 +1,15 @@
 package br.com.computocell.helpdesk.api.entity;
 
-import br.com.computocell.helpdesk.api.enums.PriorityEnum;
-import br.com.computocell.helpdesk.api.enums.StatusEnum;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
-import java.util.List;
+import br.com.computocell.helpdesk.api.enums.PriorityEnum;
+import br.com.computocell.helpdesk.api.enums.StatusEnum;
 
 @Document
 public class Ticket {

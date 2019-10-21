@@ -1,5 +1,12 @@
 package br.com.computocell.helpdesk.api.security.jwt;
 
+import java.io.IOException;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -7,12 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * Filtro para verificar o acesso de cara requisição, verificando se existe um toquem valido
@@ -24,9 +25,9 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    @Override
+
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        String authToken = request.getHeader("Autorization");
+        String authToken = request.getHeader("Authorization");
         String username = jwtTokenUtil.getUserNameFromToken(authToken);
 
         if(username !=null && SecurityContextHolder.getContext().getAuthentication() == null ) {
@@ -34,7 +35,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
             if(jwtTokenUtil.validateToken(authToken,userDetails)) {
 
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                		userDetails, null, userDetails.getAuthorities());
 
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 

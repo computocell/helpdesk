@@ -1,15 +1,18 @@
 package br.com.computocell.helpdesk.api.security.jwt;
 
-import br.com.computocell.helpdesk.api.entity.User;
-import br.com.computocell.helpdesk.api.enums.ProfileEnum;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import br.com.computocell.helpdesk.api.entity.User;
+import br.com.computocell.helpdesk.api.enums.ProfileEnum;
+
 public class JwtUserFactory {
-    private JwtUserFactory() { }
+    private JwtUserFactory() {
+    	
+    }
 
     public static JwtUser create(User user) {
         return new JwtUser(user.getId(),user.getEmail(),user.getPassword(),mapToGrantedAuthorities(user.getProfile()));

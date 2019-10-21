@@ -1,19 +1,21 @@
 package br.com.computocell.helpdesk.api.security.service;
 
-import br.com.computocell.helpdesk.api.entity.User;
-import br.com.computocell.helpdesk.api.security.jwt.JwtUserFactory;
-import br.com.computocell.helpdesk.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import br.com.computocell.helpdesk.api.entity.User;
+import br.com.computocell.helpdesk.api.security.jwt.JwtUserFactory;
+import br.com.computocell.helpdesk.api.service.UserService;
+
 /**
  * Usado para manipular a interface do User Details
  */
 @Service
 public class JwtUserDetailServiceImpl implements UserDetailsService {
+	
     @Autowired
     private UserService userService;
 

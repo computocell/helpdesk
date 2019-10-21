@@ -1,15 +1,16 @@
 package br.com.computocell.helpdesk.api.security.jwt;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Collection;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class JwtUser implements UserDetails {
-    private static final long serialVersionUID = -7471177486145141709L;
 
-    private final String id;
+	private static final long serialVersionUID = -8177581810717422390L;
+	private final String id;
     private final String username;
     private final String password;
     private final Collection<? extends GrantedAuthority> authorities;

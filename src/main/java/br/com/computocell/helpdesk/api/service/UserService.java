@@ -1,7 +1,8 @@
 package br.com.computocell.helpdesk.api.service;
 
-import br.com.computocell.helpdesk.api.entity.User;
 import org.springframework.data.domain.Page;
+
+import br.com.computocell.helpdesk.api.entity.User;
 
 public interface UserService {
 
