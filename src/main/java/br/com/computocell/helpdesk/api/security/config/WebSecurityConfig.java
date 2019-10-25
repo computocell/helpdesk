@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,30 +32,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    public void configureAuthentication (AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception  {
+    	authenticationManagerBuilder.userDetailsService(this.userDetailsService).passwordEncoder(passwordEncoder());
+    }
     
-   
-//    @Autowired
-//    @Bean
-//    public void configureAuthentication (AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception  {
-//        authenticationManagerBuilder.userDetailsService(this.userDetailsService).passwordEncoder(passwordEnconder());
-//
-//    }
 
-  
-    @Override
-	@Bean // Coloco @Bean para o Spring saber que esse método retorna um AuthenticationManager. Com isso, consigo injetar na AuthenticationRestController
-	protected AuthenticationManager authenticationManager() throws Exception { // Método que cria um AuthenticationManager
-		return super.authenticationManager();
-	}
-	
-	// Configurações de autenticação
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());  // Digo o encoder que vou utilizar para a senha
-	}
-
-    
-    
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

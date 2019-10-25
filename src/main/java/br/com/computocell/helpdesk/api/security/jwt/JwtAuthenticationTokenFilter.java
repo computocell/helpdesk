@@ -19,7 +19,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
  * Filtro para verificar o acesso de cara requisição, verificando se existe um toquem valido
  */
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
-    @Autowired
+   
+	@Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired
@@ -27,7 +28,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        String authToken = request.getHeader("Authorization");
+       
+    	String authToken = request.getHeader("Authorization");
         String username = jwtTokenUtil.getUserNameFromToken(authToken);
 
         if(username !=null && SecurityContextHolder.getContext().getAuthentication() == null ) {

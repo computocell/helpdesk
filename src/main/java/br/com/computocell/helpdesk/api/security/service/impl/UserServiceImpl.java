@@ -6,8 +6,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.com.computocell.helpdesk.api.entity.User;
 import br.com.computocell.helpdesk.api.repository.UserRepository;
+import br.com.computocell.helpdesk.api.security.entity.User;
 import br.com.computocell.helpdesk.api.security.service.UserService;
 
 @Service

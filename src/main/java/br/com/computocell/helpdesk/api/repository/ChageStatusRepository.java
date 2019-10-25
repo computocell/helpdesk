@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import br.com.computocell.helpdesk.api.entity.ChangeStatus;
+import br.com.computocell.helpdesk.api.security.entity.ChangeStatus;
 
 public interface ChageStatusRepository extends MongoRepository<ChangeStatus, String> {
 //    Iterable<ChangeStatus> findbyTicketIdOrderByDateChangeStatusDesc(String tickedId);

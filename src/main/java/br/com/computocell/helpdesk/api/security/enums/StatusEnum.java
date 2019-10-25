@@ -1,4 +1,4 @@
-package br.com.computocell.helpdesk.api.enums;
+package br.com.computocell.helpdesk.api.security.enums;
 
 public enum StatusEnum {
     New,

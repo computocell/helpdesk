@@ -1,4 +1,4 @@
-package br.com.computocell.helpdesk.api.entity;
+package br.com.computocell.helpdesk.api.security.entity;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import br.com.computocell.helpdesk.api.enums.StatusEnum;
+import br.com.computocell.helpdesk.api.security.enums.StatusEnum;
 
 @Document
 public class ChangeStatus {

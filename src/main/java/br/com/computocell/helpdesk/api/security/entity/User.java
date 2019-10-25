@@ -1,4 +1,4 @@
-package br.com.computocell.helpdesk.api.entity;
+package br.com.computocell.helpdesk.api.security.entity;
 
 import javax.validation.constraints.Size;
 
@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import br.com.computocell.helpdesk.api.enums.ProfileEnum;
+import br.com.computocell.helpdesk.api.security.enums.ProfileEnum;
 
 
 @Document

@@ -15,9 +15,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
 public class JwtTokenUtil implements Serializable {
-    private static final long serialVersionUID = 1L;
+    
 
-    static final String CLAIM_KEY_USERNAME  = "sub";
+	private static final long serialVersionUID = 1310707971453665787L;
+	static final String CLAIM_KEY_USERNAME  = "sub";
     static final String CLAIM_KEY_CREATED   = "created";
     static final String CLAIM_KEY_EXPIRED   = "exp";
 
@@ -35,7 +36,7 @@ public class JwtTokenUtil implements Serializable {
     public String getUserNameFromToken(String token) {
         String username;
         try {
-            final Claims claims = null; //getClaimsFromToken(token);
+            final Claims claims = getClaimsFromToken(token);
             username = claims.getSubject();
         }catch (Exception e){
             username = null;
@@ -51,7 +52,7 @@ public class JwtTokenUtil implements Serializable {
     public Date getExpirationDateFromToken(String token) {
         Date expiration;
         try {
-            final Claims claims = null; //getClaimsFromToken(token);
+            final Claims claims = getClaimsFromToken(token);
             expiration = claims.getExpiration();
         }catch (Exception e) {
             expiration = null;
@@ -136,6 +137,6 @@ public class JwtTokenUtil implements Serializable {
         JwtUser user = (JwtUser) userDetails;
         final String userName = getUserNameFromToken(token);
         return (
-                userName.equals(user.getUsername())&& !isTokenExpired(token));
+                userName.equals(user.getUsername()) && !isTokenExpired(token));
     }
 }

@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import br.com.computocell.helpdesk.api.entity.User;
-import br.com.computocell.helpdesk.api.enums.ProfileEnum;
 import br.com.computocell.helpdesk.api.repository.UserRepository;
+import br.com.computocell.helpdesk.api.security.entity.User;
+import br.com.computocell.helpdesk.api.security.enums.ProfileEnum;
 
 @SpringBootApplication
 public class HelpdeskApplication {
@@ -35,4 +35,6 @@ public class HelpdeskApplication {
 			userRepository.save(admin);
 		}
 	}
+	
+//	https://github.com/klayrocha/angular-spring-api
 }

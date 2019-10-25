@@ -2,7 +2,7 @@ package br.com.computocell.helpdesk.api.security.service;
 
 import org.springframework.data.domain.Page;
 
-import br.com.computocell.helpdesk.api.entity.User;
+import br.com.computocell.helpdesk.api.security.entity.User;
 
 public interface UserService {
 
