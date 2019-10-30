@@ -29,9 +29,12 @@ public class Ticket {
     private StatusEnum status;
 
     private PriorityEnum priority;
+    
     @DBRef(lazy = true)
     private User assignedUser;
+    
     private String description;
+    
     private String image;
 
     @Transient

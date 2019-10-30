@@ -1,4 +1,4 @@
-package br.com.computocell.helpdesk.api.security.service.impl;
+package br.com.computocell.helpdesk.api.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.computocell.helpdesk.api.repository.UserRepository;
 import br.com.computocell.helpdesk.api.security.entity.User;
-import br.com.computocell.helpdesk.api.security.service.UserService;
+import br.com.computocell.helpdesk.api.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

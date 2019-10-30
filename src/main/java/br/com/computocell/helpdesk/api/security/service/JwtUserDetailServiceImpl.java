@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.computocell.helpdesk.api.security.entity.User;
 import br.com.computocell.helpdesk.api.security.jwt.JwtUserFactory;
+import br.com.computocell.helpdesk.api.service.UserService;
 
 /**
  * Usado para manipular a interface do User Details

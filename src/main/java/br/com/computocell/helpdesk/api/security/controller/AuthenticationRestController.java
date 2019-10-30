@@ -20,7 +20,7 @@ import br.com.computocell.helpdesk.api.security.entity.User;
 import br.com.computocell.helpdesk.api.security.jwt.JwtAuthenticationRequest;
 import br.com.computocell.helpdesk.api.security.jwt.JwtTokenUtil;
 import br.com.computocell.helpdesk.api.security.model.CurrentUser;
-import br.com.computocell.helpdesk.api.security.service.UserService;
+import br.com.computocell.helpdesk.api.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "*")

@@ -1,4 +1,4 @@
-package br.com.computocell.helpdesk.api.security.service;
+package br.com.computocell.helpdesk.api.service;
 
 import org.springframework.data.domain.Page;
 
