@@ -4,8 +4,12 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import br.com.computocell.helpdesk.api.security.entity.ChangeStatus;
 
-public interface ChageStatusRepository extends MongoRepository<ChangeStatus, String> {
+public interface ChangeStatusRepository extends MongoRepository<ChangeStatus, String> {
+	/**
+	 * Lista de alterações por id do ticket
+	 * @param ticketId
+	 * @return
+	 */
 	Iterable<ChangeStatus> findByTicketIdOrderByDateChangeStatusDesc(String ticketId);
-//    List<ChangeStatus> findbyTicketIdOrderByDateChangeStatusDesc(String tickedId);
-    
+
 }

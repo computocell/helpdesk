@@ -31,7 +31,7 @@ public interface TicketService {
 	
 	Iterable<Ticket> findAll();
 	
-	public Page<Ticket> findByParametersAndAssignedUser(int page, int count, String title,String status,String priority,String assignedUserId);
+	public Page<Ticket> findByParametersAndAssignedUser(int page, int count, String title,String status,String priority,String assignedUser);
 	
 	
 }

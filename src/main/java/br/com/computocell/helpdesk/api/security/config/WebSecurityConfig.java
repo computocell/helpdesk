@@ -22,7 +22,7 @@ import br.com.computocell.helpdesk.api.security.jwt.JwtAuthenticationTokenFilter
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled=true,proxyTargetClass=true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import br.com.computocell.helpdesk.api.security.entity.User;
+import br.com.computocell.helpdesk.api.entity.User;
 import br.com.computocell.helpdesk.api.security.enums.ProfileEnum;
 
 public class JwtUserFactory {

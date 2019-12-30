@@ -1,6 +1,6 @@
 package br.com.computocell.helpdesk.api.security.model;
 
-import br.com.computocell.helpdesk.api.security.entity.User;
+import br.com.computocell.helpdesk.api.entity.User;
 
 public class CurrentUser {
     private String token;

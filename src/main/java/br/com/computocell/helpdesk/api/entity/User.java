@@ -1,4 +1,4 @@
-package br.com.computocell.helpdesk.api.security.entity;
+package br.com.computocell.helpdesk.api.entity;
 
 import javax.validation.constraints.Size;
 
