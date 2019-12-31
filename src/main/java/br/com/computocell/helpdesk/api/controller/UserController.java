@@ -37,7 +37,7 @@ public class UserController {
 
 	@PostMapping
 	@PreAuthorize("hasAnyRole('ADMIN')")
-	public ResponseEntity<Response<User>> create(HttpServletRequest request, @RequestBody User user,
+	public ResponseEntity<Response<User>> createOrUpdate(HttpServletRequest request, @RequestBody User user,
 			BindingResult result) {
 		Response<User> response = new Response<User>();
 		try {
@@ -47,7 +47,7 @@ public class UserController {
 				return ResponseEntity.badRequest().body(response);
 			}
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
-			User userPersisted = (User) userService.createOsUpdate(user);
+			User userPersisted = (User) userService.createOrUpdate(user);
 
 			response.setData(userPersisted);
 
@@ -76,7 +76,7 @@ public class UserController {
 				return ResponseEntity.badRequest().body(response);
 			}
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
-			User userPersisted = (User) userService.createOsUpdate(user);
+			User userPersisted = (User) userService.createOrUpdate(user);
 			response.setData(userPersisted);
 
 		} catch (Exception e) {
@@ -87,6 +87,11 @@ public class UserController {
 		return ResponseEntity.ok(response);
 	}
 
+	/**
+	 * Valida o usuario
+	 * @param user
+	 * @param result
+	 */
 	private void validadeUpdateUser(User user, BindingResult result) {
 		if (user.getId() == null) {
 			result.addError(new ObjectError("User", "Id no information !"));

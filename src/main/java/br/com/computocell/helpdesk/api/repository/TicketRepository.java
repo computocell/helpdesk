@@ -24,7 +24,8 @@ public interface TicketRepository extends MongoRepository<Ticket, String> {
 	 * @param pages
 	 * @return
 	 */
-	Page<Ticket> findByTitleIgnoreCaseContainingAndStatusIgnoreCaseContainingAndPriorityIgnoreCaseContainingOrderByDateDesc(String title, String status, String priority, Pageable pages);
+	Page<Ticket> findByTitleIgnoreCaseContainingAndStatusIgnoreCaseContainingAndPriorityIgnoreCaseContainingOrderByDateDesc(
+			String title, String status, String priority, Pageable pages);
 	/**
 	 * Retorna um ticket por parametros de acordo com o usuario logado
 	 * 
@@ -35,7 +36,8 @@ public interface TicketRepository extends MongoRepository<Ticket, String> {
 	 * @param pages
 	 * @return
 	 */
-	Page<Ticket> findByTitleIgnoreCaseContainingAndStatusIgnoreCaseContainingAndPriorityIgnoreCaseContainingAndUserIdOrderByDateDesc(String title, String status, String priority, String userId, Pageable pages);
+	Page<Ticket> findByTitleIgnoreCaseContainingAndStatusIgnoreCaseContainingAndPriorityIgnoreCaseContainingAndUserIdOrderByDateDesc(
+			String title, String status, String priority, String userId, Pageable pages);
 	/**
 	 * Retorna um ticket pelo numero
 	 * @param number
@@ -43,6 +45,7 @@ public interface TicketRepository extends MongoRepository<Ticket, String> {
 	 * @return
 	 */
 	Page<Ticket> findByNumber(Integer number, Pageable pages);
+	
 	/**
 	 * 
 	 * 

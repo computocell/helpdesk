@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 		return this.userRepository.findByEmail(email);
 	}
 
-	public User createOsUpdate(User user) {
+	public User createOrUpdate(User user) {
 		return this.userRepository.save(user);
 	}
 

@@ -10,7 +10,7 @@ public interface UserService {
 
     User findByEmail(String email);
 
-    User createOsUpdate(User user);
+    User createOrUpdate(User user);
 
     User findById(String id);
 
